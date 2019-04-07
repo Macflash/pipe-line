@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Line } from './line';
+import { Pipe } from './pipe';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Line total={400}>
+            <Pipe total={10} size={3} scale={1000} />
+            <Pipe total={10} size={4} scale={1000} />
+            <Pipe total={10} size={2} scale={1000} />
+        </Line>
+        <Line total={400}>
+            <Pipe total={10} size={1} scale={1000} />
+            <Pipe total={10} size={1} scale={1000} />
+            <Pipe total={10} size={3} scale={1000} />
+            <Pipe total={10} size={5} scale={1000} />
+        </Line>
       </div>
     );
   }
