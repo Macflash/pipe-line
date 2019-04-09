@@ -10,13 +10,21 @@ export class Line extends Component<{}, { pipes: number[] }> {
 
     componentDidUpdate() {
         // only create a new loop when total length changes
-        
+
         const { pipes } = this.state;
         Tone.Transport.bpm.value = 120
         var synth = new Tone.Synth().toMaster();
 
         var total = 0;
         pipes.forEach(n => total += n);
+
+        // for now we just say we scale based on the length
+        // each loop is fixed to the same tempo for now
+        // want to support different lengths later
+
+        // for animation we probably want to request animation frame
+        // and then query the position in the transport
+
         var note = 0;
         var block = 0;
         var loop = new Tone.Loop((time) => {
